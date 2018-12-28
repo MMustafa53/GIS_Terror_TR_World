@@ -1,0 +1,26 @@
+!Workspace
+!Version  950
+!Charset WindowsTurkish
+Open Table "4.SINIF GÜZ\BM463\terror" As terror Interactive
+Open Table "4.SINIF GÜZ\BM463\midata_32bit\MiData\Bolum_6\Iller" As Iller Interactive
+Map From Iller 
+  Position (0.0520833,0.0520833) Units "in"
+  Width 4.92708 Units "in" Height 3.01042 Units "in" 
+Set Window FrontWindow() ScrollBars Off Autoscroll On Enhanced On Smooth Text Antialias Image High
+Set Map
+  CoordSys Earth Projection 3, 28, "m", 36, 25, 37.5, 40.5, 1003827.11, -1183453.0800000001
+  Center (954589.8838,396050.7577)
+  Zoom 1867.640291 Units "km"
+  Preserve Zoom Display Zoom
+  Distance Units "km" Area Units "sq km" XY Units "m"
+Set Map
+  Layer 1
+    Display Graphic
+    Global Pen (1,2,0) Brush (2,16777215,16777215) Symbol (35,0,12) Line (1,2,0) Font ("Tahoma",0,9,0)
+    Label Line None Position Center Font ("Tahoma",0,9,0) Pen (1,2,0) 
+      With IL_ADI
+      Parallel On Auto Off Overlap Off Duplicates On Offset 2
+      Visibility On
+Set Window FrontWindow() Printer
+ Name "MapInfo PDF Printer Version 11.5" Orientation Portrait Copies 1
+ Papersize 9
