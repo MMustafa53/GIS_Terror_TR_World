@@ -32,49 +32,49 @@ namespace CBS_Teror_Olayları
             win_id = mi.Eval("frontwindow()");
         }
 
-        private void yilSaldiri_Click(object sender, EventArgs e)
+        private void yıllaraGöreSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
             grafikDunya grafikD = new grafikDunya();
             grafikD.kontrolD = "yilSaldiriD";
             grafikD.ShowDialog();
         }
 
-        private void yilOlen_Click(object sender, EventArgs e)
+        private void yıllaraGöreÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
             grafikDunya grafikD = new grafikDunya();
             grafikD.kontrolD = "yilOlenD";
             grafikD.ShowDialog();
         }
 
-        private void bolgeSaldiri_Click(object sender, EventArgs e)
-        {
-            grafikDunya grafikD = new grafikDunya();
-            grafikD.kontrolD = "bolgeSaldiriD";
-            grafikD.ShowDialog();
-        }
-
-        private void yilYarali_Click(object sender, EventArgs e)
+        private void yıllaraGöreYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
             grafikDunya grafikD = new grafikDunya();
             grafikD.kontrolD = "yilYaraliD";
             grafikD.ShowDialog();
         }
 
-        private void saldiriTuru_Click(object sender, EventArgs e)
+        private void bölgelereGöreSaldırıSayılarıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grafikDunya grafikD = new grafikDunya();
+            grafikD.kontrolD = "bolgeSaldiriD";
+            grafikD.ShowDialog();
+        }
+
+        private void saldırıTürleriToolStripMenuItem_Click(object sender, EventArgs e)
         {
             grafikDunya grafikD = new grafikDunya();
             grafikD.kontrolD = "saldiriTuruD";
             grafikD.ShowDialog();
         }
 
-        private void saldiriHedef_Click(object sender, EventArgs e)
+        private void saldırılanHedeflerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             grafikDunya grafikD = new grafikDunya();
             grafikD.kontrolD = "saldiriHedefD";
             grafikD.ShowDialog();
         }
 
-        private void saldiriSilahTuru_Click(object sender, EventArgs e)
+        private void saldırılırdaKullanılanSilahlarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             grafikDunya grafikD = new grafikDunya();
             grafikD.kontrolD = "saldiriSilahTuruD";

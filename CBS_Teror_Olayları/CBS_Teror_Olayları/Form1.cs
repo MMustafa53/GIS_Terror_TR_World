@@ -50,78 +50,72 @@ namespace CBS_Teror_Olayları
         }
 
         //  ############################### -- GRAFIKLER -- ############################### //
-
-        private void yilSaldiri_Click(object sender, EventArgs e)
+        private void yıllaraGöreSaldırıSaysıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
             grafikler grafik = new grafikler();
             grafik.kontrol = "yilSaldiri";
             grafik.ShowDialog();
         }
 
-        private void bolgeSaldiri_Click(object sender, EventArgs e)
-        {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "bolgeSaldiri";
-            grafik.ShowDialog();
-        }
-
-        private void saldiriTuru_Click(object sender, EventArgs e)
-        {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "saldiriTuru";
-            grafik.ShowDialog();
-        }
-
-        private void saldiriSilahTuru_Click(object sender, EventArgs e)
-        {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "saldiriSilahTuru";
-            grafik.ShowDialog();
-        }
-
-        private void terorOrgut_Click(object sender, EventArgs e)
-        {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "terorOrgut";
-            grafik.ShowDialog();
-        }
-
-        private void saldiriHedef_Click(object sender, EventArgs e)
-        {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "saldiriHedef";
-            grafik.ShowDialog();
-        }
-
-        private void yilYarali_Click(object sender, EventArgs e)
-        {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "yilYarali";
-            grafik.ShowDialog();
-        }
-
-        private void yilOlen_Click(object sender, EventArgs e)
+        private void yıllaraGöreÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
             grafikler grafik = new grafikler();
             grafik.kontrol = "yilOlen";
             grafik.ShowDialog();
         }
 
+        private void yıllaraGöreYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grafikler grafik = new grafikler();
+            grafik.kontrol = "yilYarali";
+            grafik.ShowDialog();
+        }
+
+        private void bölgelereGöreSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grafikler grafik = new grafikler();
+            grafik.kontrol = "bolgeSaldiri";
+            grafik.ShowDialog();
+        }
+
+        private void saldırıTürleriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grafikler grafik = new grafikler();
+            grafik.kontrol = "saldiriTuru";
+            grafik.ShowDialog();
+        }
+
+        private void saldırılanHedeflerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grafikler grafik = new grafikler();
+            grafik.kontrol = "saldiriHedef";
+            grafik.ShowDialog();
+        }
+
+        private void saldırılırdaKullanılanSilahlarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grafikler grafik = new grafikler();
+            grafik.kontrol = "saldiriSilahTuru";
+            grafik.ShowDialog();
+        }
+
+        private void saldırıyeGerçekleştirenÖrgütlerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grafikler grafik = new grafikler();
+            grafik.kontrol = "terorOrgut";
+            grafik.ShowDialog();
+        }
 
         //  ############################### -- TEMATIKLER -- ############################### //
 
-
-        private void ilOlen_Click(object sender, EventArgs e)
+        private void illereGöreÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void ilYarali_Click(object sender, EventArgs e)
+        private void illereGöreYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
-
     }
 }
