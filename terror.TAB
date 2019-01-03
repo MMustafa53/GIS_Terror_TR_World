@@ -1,0 +1,242 @@
+!table
+!version 300
+!charset WindowsTurkish
+
+Definition Table
+  File "globalterrorismdb_0718dist.csv"
+  Type ASCII Delimiter "," Titles Charset "WindowsTurkish"
+  Fields 135
+    eventid Char (252) ;
+    iyear Char (168) ;
+    imonth Char (254) ;
+    iday Char (221) ;
+    approxdate Char (210) ;
+    extended Char (141) ;
+    resolution Char (188) ;
+    country Char (221) ;
+    country_txt Char (254) ;
+    region Char (254) ;
+    region_txt Char (110) ;
+    provstate Char (110) ;
+    city Char (65) ;
+    latitude Float ;
+    longitude Char (54) ;
+    specificity Smallint ;
+    vicinity Smallint ;
+    location Char (254) ;
+    summary Char (254) ;
+    crit1 Smallint ;
+    crit2 Smallint ;
+    crit3 Smallint ;
+    doubtterr Smallint ;
+    alternative Smallint ;
+    alternative_txt Char (26) ;
+    multiple Smallint ;
+    success Smallint ;
+    suicide Smallint ;
+    attacktype1 Smallint ;
+    attacktype1_txt Char (35) ;
+    attacktype2 Smallint ;
+    attacktype2_txt Char (35) ;
+    attacktype3 Smallint ;
+    attacktype3_txt Char (35) ;
+    targtype1 Smallint ;
+    targtype1_txt Char (30) ;
+    targsubtype1 Smallint ;
+    targsubtype1_txt Char (71) ;
+    corp1 Char (182) ;
+    target1 Char (254) ;
+    natlty1 Smallint ;
+    natlty1_txt Char (34) ;
+    targtype2 Smallint ;
+    targtype2_txt Char (30) ;
+    targsubtype2 Smallint ;
+    targsubtype2_txt Char (71) ;
+    corp2 Char (101) ;
+    target2 Char (169) ;
+    natlty2 Smallint ;
+    natlty2_txt Char (32) ;
+    targtype3 Smallint ;
+    targtype3_txt Char (30) ;
+    targsubtype3 Smallint ;
+    targsubtype3_txt Char (71) ;
+    corp3 Char (78) ;
+    target3 Char (178) ;
+    natlty3 Smallint ;
+    natlty3_txt Char (32) ;
+    gname Char (112) ;
+    gsubname Char (119) ;
+    gname2 Char (100) ;
+    gsubname2 Char (58) ;
+    gname3 Char (55) ;
+    gsubname3 Char (47) ;
+    motive Char (254) ;
+    guncertain1 Smallint ;
+    guncertain2 Smallint ;
+    guncertain3 Smallint ;
+    individual Smallint ;
+    nperps Smallint ;
+    nperpcap Float ;
+    claimed Smallint ;
+    claimmode Smallint ;
+    claimmode_txt Char (29) ;
+    claim2 Smallint ;
+    claimmode2 Smallint ;
+    claimmode2_txt Char (29) ;
+    claim3 Smallint ;
+    claimmode3 Smallint ;
+    claimmode3_txt Char (29) ;
+    compclaim Smallint ;
+    weaptype1 Smallint ;
+    weaptype1_txt Char (75) ;
+    weapsubtype1 Smallint ;
+    weapsubtype1_txt Char (41) ;
+    weaptype2 Smallint ;
+    weaptype2_txt Char (75) ;
+    weapsubtype2 Smallint ;
+    weapsubtype2_txt Char (41) ;
+    weaptype3 Smallint ;
+    weaptype3_txt Char (75) ;
+    weapsubtype3 Smallint ;
+    weapsubtype3_txt Char (41) ;
+    weaptype4 Smallint ;
+    weaptype4_txt Char (10) ;
+    weapsubtype4 Smallint ;
+    weapsubtype4_txt Char (41) ;
+    weapdetail Char (254) ;
+    nkill Smallint ;
+    nkillus Smallint ;
+    nkillter Smallint ;
+    nwound Float ;
+    nwoundus Smallint ;
+    nwoundte Smallint ;
+    property Smallint ;
+    propextent Smallint ;
+    propextent_txt Char (45) ;
+    propvalue Float ;
+    propcomment Char (254) ;
+    ishostkid Smallint ;
+    nhostkid Smallint ;
+    nhostkidus Smallint ;
+    nhours Float ;
+    ndays Smallint ;
+    divert Char (50) ;
+    kidhijcountry Char (37) ;
+    ransom Smallint ;
+    ransomamt Float ;
+    ransomamtus Float ;
+    ransompaid Float ;
+    ransompaidus Integer ;
+    ransomnote Char (254) ;
+    hostkidoutcome Smallint ;
+    hostkidoutcome_txt Char (46) ;
+    nreleased Smallint ;
+    addnotes Char (254) ;
+    scite1 Char (254) ;
+    scite2 Char (254) ;
+    scite3 Char (254) ;
+    dbsource Char (40) ;
+    INT_LOG Smallint ;
+    INT_IDEO Smallint ;
+    INT_MISC Smallint ;
+    INT_ANY Smallint ;
+    related Char (254) ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "0197f85e-fb4c-4748-aa61-4114c801feab"
+"\DefaultBrowser" = ""
+"\DefaultBrowser\Columns" = ""
+"\DefaultBrowser\Columns\Count" = "30"
+"\DefaultBrowser\Columns\Column" = ""
+"\DefaultBrowser\Columns\Column\1" = ""
+"\DefaultBrowser\Columns\Column\1\Expression" = "eventid"
+"\DefaultBrowser\Columns\Column\1\Alias" = ""
+"\DefaultBrowser\Columns\Column\2" = ""
+"\DefaultBrowser\Columns\Column\2\Expression" = "iyear"
+"\DefaultBrowser\Columns\Column\2\Alias" = ""
+"\DefaultBrowser\Columns\Column\3" = ""
+"\DefaultBrowser\Columns\Column\3\Expression" = "imonth"
+"\DefaultBrowser\Columns\Column\3\Alias" = ""
+"\DefaultBrowser\Columns\Column\4" = ""
+"\DefaultBrowser\Columns\Column\4\Expression" = "iday"
+"\DefaultBrowser\Columns\Column\4\Alias" = ""
+"\DefaultBrowser\Columns\Column\5" = ""
+"\DefaultBrowser\Columns\Column\5\Expression" = "extended"
+"\DefaultBrowser\Columns\Column\5\Alias" = ""
+"\DefaultBrowser\Columns\Column\6" = ""
+"\DefaultBrowser\Columns\Column\6\Expression" = "country_txt"
+"\DefaultBrowser\Columns\Column\6\Alias" = ""
+"\DefaultBrowser\Columns\Column\7" = ""
+"\DefaultBrowser\Columns\Column\7\Expression" = "region_txt"
+"\DefaultBrowser\Columns\Column\7\Alias" = ""
+"\DefaultBrowser\Columns\Column\8" = ""
+"\DefaultBrowser\Columns\Column\8\Expression" = "provstate"
+"\DefaultBrowser\Columns\Column\8\Alias" = ""
+"\DefaultBrowser\Columns\Column\9" = ""
+"\DefaultBrowser\Columns\Column\9\Expression" = "city"
+"\DefaultBrowser\Columns\Column\9\Alias" = ""
+"\DefaultBrowser\Columns\Column\10" = ""
+"\DefaultBrowser\Columns\Column\10\Expression" = "summary"
+"\DefaultBrowser\Columns\Column\10\Alias" = ""
+"\DefaultBrowser\Columns\Column\11" = ""
+"\DefaultBrowser\Columns\Column\11\Expression" = "suicide"
+"\DefaultBrowser\Columns\Column\11\Alias" = ""
+"\DefaultBrowser\Columns\Column\12" = ""
+"\DefaultBrowser\Columns\Column\12\Expression" = "attacktype1_txt"
+"\DefaultBrowser\Columns\Column\12\Alias" = ""
+"\DefaultBrowser\Columns\Column\13" = ""
+"\DefaultBrowser\Columns\Column\13\Expression" = "targtype1_txt"
+"\DefaultBrowser\Columns\Column\13\Alias" = ""
+"\DefaultBrowser\Columns\Column\14" = ""
+"\DefaultBrowser\Columns\Column\14\Expression" = "targsubtype1_txt"
+"\DefaultBrowser\Columns\Column\14\Alias" = ""
+"\DefaultBrowser\Columns\Column\15" = ""
+"\DefaultBrowser\Columns\Column\15\Expression" = "corp1"
+"\DefaultBrowser\Columns\Column\15\Alias" = ""
+"\DefaultBrowser\Columns\Column\16" = ""
+"\DefaultBrowser\Columns\Column\16\Expression" = "target1"
+"\DefaultBrowser\Columns\Column\16\Alias" = ""
+"\DefaultBrowser\Columns\Column\17" = ""
+"\DefaultBrowser\Columns\Column\17\Expression" = "natlty1_txt"
+"\DefaultBrowser\Columns\Column\17\Alias" = ""
+"\DefaultBrowser\Columns\Column\18" = ""
+"\DefaultBrowser\Columns\Column\18\Expression" = "weaptype1_txt"
+"\DefaultBrowser\Columns\Column\18\Alias" = ""
+"\DefaultBrowser\Columns\Column\19" = ""
+"\DefaultBrowser\Columns\Column\19\Expression" = "weapsubtype1"
+"\DefaultBrowser\Columns\Column\19\Alias" = ""
+"\DefaultBrowser\Columns\Column\20" = ""
+"\DefaultBrowser\Columns\Column\20\Expression" = "weapsubtype1_txt"
+"\DefaultBrowser\Columns\Column\20\Alias" = ""
+"\DefaultBrowser\Columns\Column\21" = ""
+"\DefaultBrowser\Columns\Column\21\Expression" = "nkill"
+"\DefaultBrowser\Columns\Column\21\Alias" = ""
+"\DefaultBrowser\Columns\Column\22" = ""
+"\DefaultBrowser\Columns\Column\22\Expression" = "nwound"
+"\DefaultBrowser\Columns\Column\22\Alias" = ""
+"\DefaultBrowser\Columns\Column\23" = ""
+"\DefaultBrowser\Columns\Column\23\Expression" = "propextent_txt"
+"\DefaultBrowser\Columns\Column\23\Alias" = ""
+"\DefaultBrowser\Columns\Column\24" = ""
+"\DefaultBrowser\Columns\Column\24\Expression" = "propvalue"
+"\DefaultBrowser\Columns\Column\24\Alias" = ""
+"\DefaultBrowser\Columns\Column\25" = ""
+"\DefaultBrowser\Columns\Column\25\Expression" = "propcomment"
+"\DefaultBrowser\Columns\Column\25\Alias" = ""
+"\DefaultBrowser\Columns\Column\26" = ""
+"\DefaultBrowser\Columns\Column\26\Expression" = "nhostkid"
+"\DefaultBrowser\Columns\Column\26\Alias" = ""
+"\DefaultBrowser\Columns\Column\27" = ""
+"\DefaultBrowser\Columns\Column\27\Expression" = "nhours"
+"\DefaultBrowser\Columns\Column\27\Alias" = ""
+"\DefaultBrowser\Columns\Column\28" = ""
+"\DefaultBrowser\Columns\Column\28\Expression" = "ndays"
+"\DefaultBrowser\Columns\Column\28\Alias" = ""
+"\DefaultBrowser\Columns\Column\29" = ""
+"\DefaultBrowser\Columns\Column\29\Expression" = "ransompaid"
+"\DefaultBrowser\Columns\Column\29\Alias" = ""
+"\DefaultBrowser\Columns\Column\30" = ""
+"\DefaultBrowser\Columns\Column\30\Expression" = "gname"
+"\DefaultBrowser\Columns\Column\30\Alias" = ""
+end_metadata
