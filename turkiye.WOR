@@ -1,0 +1,47 @@
+!Workspace
+!Version  950
+!Charset WindowsTurkish
+Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\terror" As terror Interactive
+Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\Iller" As Iller Interactive
+Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\trOluYarali" As trOluYarali Interactive
+Add Column "Iller" (_COL2) Values
+ 73,59,0,226,1,383,23,10,6,8,
+ 0,174,112,0,1,13,0,4,2,5,
+ 513,0,80,23,48,4,115,1,14,742,
+ 112,0,0,769,60,32,22,38,0,0,
+ 10,16,5,24,5,0,468,3,26,2,
+ 3,9,0,11,23,195,2,23,0,16,
+ 31,190,130,0,133,0,0,0,0,0,
+ 7,100,766,1,9,40,0,0,38,14
+Add Column "Iller" (_COL3) Values
+ 148,18,0,104,6,755,156,2,16,0,
+ 0,201,77,0,0,29,0,10,0,8,
+ 1225,0,255,27,13,0,247,7,4,608,
+ 200,0,0,2652,177,11,0,81,0,2,
+ 46,3,0,9,1,0,541,16,48,0,
+ 6,6,0,0,18,99,7,10,0,12,
+ 37,173,174,1,372,0,0,0,0,0,
+ 43,89,564,2,2,26,0,0,106,4
+Add Column "Iller" (oluSayisi Integer) From trOluYarali Set To oluSayisi Where COL1 = COL1  Dynamic
+Add Column "Iller" (yaraliSayisi Integer) From trOluYarali Set To yaraliSayisi Where COL1 = COL1  Dynamic
+Map From Iller 
+  Position (0.0520833,0.0520833) Units "in"
+  Width 7.32292 Units "in" Height 3.83333 Units "in" 
+Set Window FrontWindow() ScrollBars Off Autoscroll On Enhanced On Smooth Text Antialias Image High
+Set Map
+  CoordSys Earth Projection 3, 28, "m", 36, 25, 37.5, 40.5, 1003827.11, -1183453.0800000001
+  Center (891311.1166,409865.8136)
+  Zoom 1867.629089 Units "km"
+  Preserve Zoom Display Zoom
+  Distance Units "km" Area Units "sq km" XY Units "m"
+Set Map
+  Layer 1
+    Display Graphic
+    Global Pen (1,2,0) Brush (2,16777215,16777215) Symbol (35,0,12) Line (1,2,0) Font ("Tahoma",0,9,0)
+    Label Line None Position Center Font ("Times New Roman",0,8,0) Pen (1,2,0) 
+      With IL_ADI
+      Parallel On Auto On Overlap On Duplicates On Offset 2
+      Visibility On
+Set Window FrontWindow() Printer
+ Name "MapInfo PDF Printer Version 11.5" Orientation Portrait Copies 1
+ Papersize 9

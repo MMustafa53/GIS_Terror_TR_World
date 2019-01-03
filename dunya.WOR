@@ -1,0 +1,31 @@
+!Workspace
+!Version  950
+!Charset WindowsTurkish
+Open Table "4.SINIF GÜZ\BM463\terror" As terror Interactive
+Open Table "4.SINIF GÜZ\BM463\midata_32bit\MiData\Bolum_3\Dunya" As Dunya Interactive
+Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\saldiriSayisiD" As saldiriSayisiD Interactive
+Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\dOlenYarali" As dOlenYarali Interactive
+Add Column "Dunya" (saldiri Integer) From saldiriSayisiD Set To saldiri Where COL1 = COL1  Dynamic
+Add Column "Dunya" (olenSayisi Integer) From dOlenYarali Set To olenSayisi Where COL1 = COL1  Dynamic
+Add Column "Dunya" (yaraliSayisi Integer) From dOlenYarali Set To yaraliSayisi Where COL1 = COL1  Dynamic
+Map From Dunya 
+  Position (0.0520833,0.0520833) Units "in"
+  Width 5.48958 Units "in" Height 3.73958 Units "in" 
+Set Window FrontWindow() ScrollBars Off Autoscroll On Enhanced On Smooth Text Antialias Image High
+Set Map
+  CoordSys Earth Projection 1, 104
+  Center (-1.3966675,-3.1863215)
+  Zoom 45313.19435 Units "km"
+  Preserve Zoom Display Zoom
+  Distance Units "km" Area Units "sq km" XY Units "degree"
+Set Map
+  Layer 1
+    Display Graphic
+    Global Pen (1,2,0) Brush (2,16777215,16777215) Symbol (35,0,12) Line (1,2,0) Font ("Tahoma",0,9,0)
+    Label Line None Position Center Font ("Tahoma",0,9,0) Pen (1,2,0) 
+      With Country
+      Parallel On Auto Off Overlap Off Duplicates On Offset 2
+      Visibility On
+Set Window FrontWindow() Printer
+ Name "MapInfo PDF Printer Version 11.5" Orientation Portrait Copies 1
+ Papersize 9
