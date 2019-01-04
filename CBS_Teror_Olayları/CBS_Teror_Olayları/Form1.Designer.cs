@@ -43,20 +43,20 @@
             this.saldırılırdaKullanılanSilahlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saldırıyeGerçekleştirenÖrgütlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tematiklerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.illereGöreÖlenİnsanSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.illereGöreYaralıİnsanSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bilgiButonuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.illereGöreSaldırıSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bombalıSaldırıSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kundaklamaSaldırıSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ateşliSilahSaldırıSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.illereGöreÖlenİnsanSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.illereGöreYaralıİnsanSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kundaklamalardaYaralıİnsanSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bilgiButonuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,43 +187,6 @@
             this.tematiklerToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.tematiklerToolStripMenuItem.Text = "Tematikler";
             // 
-            // illereGöreÖlenİnsanSayısıToolStripMenuItem
-            // 
-            this.illereGöreÖlenİnsanSayısıToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem,
-            this.kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem,
-            this.ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem});
-            this.illereGöreÖlenİnsanSayısıToolStripMenuItem.Name = "illereGöreÖlenİnsanSayısıToolStripMenuItem";
-            this.illereGöreÖlenİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.illereGöreÖlenİnsanSayısıToolStripMenuItem.Text = "İllere Göre Ölen İnsan Sayısı";
-            this.illereGöreÖlenİnsanSayısıToolStripMenuItem.Click += new System.EventHandler(this.illereGöreÖlenİnsanSayısıToolStripMenuItem_Click);
-            // 
-            // illereGöreYaralıİnsanSayısıToolStripMenuItem
-            // 
-            this.illereGöreYaralıİnsanSayısıToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem,
-            this.kundaklamalardaYaralıİnsanSayısıToolStripMenuItem,
-            this.ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem});
-            this.illereGöreYaralıİnsanSayısıToolStripMenuItem.Name = "illereGöreYaralıİnsanSayısıToolStripMenuItem";
-            this.illereGöreYaralıİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.illereGöreYaralıİnsanSayısıToolStripMenuItem.Text = "İllere Göre Yaralı İnsan Sayısı";
-            this.illereGöreYaralıİnsanSayısıToolStripMenuItem.Click += new System.EventHandler(this.illereGöreYaralıİnsanSayısıToolStripMenuItem_Click);
-            // 
-            // bilgiButonuToolStripMenuItem
-            // 
-            this.bilgiButonuToolStripMenuItem.Name = "bilgiButonuToolStripMenuItem";
-            this.bilgiButonuToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.bilgiButonuToolStripMenuItem.Text = "Bilgi Butonu";
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Location = new System.Drawing.Point(1151, 42);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(300, 600);
-            this.panel2.TabIndex = 11;
-            // 
             // illereGöreSaldırıSayısıToolStripMenuItem
             // 
             this.illereGöreSaldırıSayısıToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -256,41 +219,84 @@
             this.ateşliSilahSaldırıSayısıToolStripMenuItem.Text = "Ateşli Silah Saldırı Sayısı";
             this.ateşliSilahSaldırıSayısıToolStripMenuItem.Click += new System.EventHandler(this.ateşliSilahSaldırıSayısıToolStripMenuItem_Click);
             // 
+            // illereGöreÖlenİnsanSayısıToolStripMenuItem
+            // 
+            this.illereGöreÖlenİnsanSayısıToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem,
+            this.kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem,
+            this.ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem});
+            this.illereGöreÖlenİnsanSayısıToolStripMenuItem.Name = "illereGöreÖlenİnsanSayısıToolStripMenuItem";
+            this.illereGöreÖlenİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.illereGöreÖlenİnsanSayısıToolStripMenuItem.Text = "İllere Göre Ölen İnsan Sayısı";
+            this.illereGöreÖlenİnsanSayısıToolStripMenuItem.Click += new System.EventHandler(this.illereGöreÖlenİnsanSayısıToolStripMenuItem_Click);
+            // 
             // bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem
             // 
             this.bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem.Name = "bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem";
-            this.bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem.Text = "Bombalı Saldırılarda Ölen İnsan Sayısı";
+            this.bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem.Click += new System.EventHandler(this.bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem_Click);
             // 
             // kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem
             // 
             this.kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem.Name = "kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem";
             this.kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem.Text = "Kundaklamalarda Ölen İnsan Sayısı";
+            this.kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem.Click += new System.EventHandler(this.kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem_Click);
             // 
             // ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem
             // 
             this.ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem.Name = "ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem";
             this.ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem.Text = "Ateşli Silahlı Saldırılarda Ölen İnsan Sayısı";
+            this.ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem.Click += new System.EventHandler(this.ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem_Click);
+            // 
+            // illereGöreYaralıİnsanSayısıToolStripMenuItem
+            // 
+            this.illereGöreYaralıİnsanSayısıToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem,
+            this.kundaklamalardaYaralıİnsanSayısıToolStripMenuItem,
+            this.ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem});
+            this.illereGöreYaralıİnsanSayısıToolStripMenuItem.Name = "illereGöreYaralıİnsanSayısıToolStripMenuItem";
+            this.illereGöreYaralıİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.illereGöreYaralıİnsanSayısıToolStripMenuItem.Text = "İllere Göre Yaralı İnsan Sayısı";
+            this.illereGöreYaralıİnsanSayısıToolStripMenuItem.Click += new System.EventHandler(this.illereGöreYaralıİnsanSayısıToolStripMenuItem_Click);
             // 
             // bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem
             // 
             this.bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem.Name = "bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem";
             this.bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
             this.bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem.Text = "Bombalı Saldırılarda Yaralı İnsan Sayısı";
+            this.bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem.Click += new System.EventHandler(this.bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem_Click);
             // 
             // kundaklamalardaYaralıİnsanSayısıToolStripMenuItem
             // 
             this.kundaklamalardaYaralıİnsanSayısıToolStripMenuItem.Name = "kundaklamalardaYaralıİnsanSayısıToolStripMenuItem";
             this.kundaklamalardaYaralıİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
             this.kundaklamalardaYaralıİnsanSayısıToolStripMenuItem.Text = "Kundaklamalarda Yaralı İnsan Sayısı";
+            this.kundaklamalardaYaralıİnsanSayısıToolStripMenuItem.Click += new System.EventHandler(this.kundaklamalardaYaralıİnsanSayısıToolStripMenuItem_Click);
             // 
             // ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem
             // 
             this.ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem.Name = "ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem";
             this.ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
             this.ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem.Text = "Ateşli Silahlı Saldırılarda Yaralı İnsan Sayısı";
+            this.ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem.Click += new System.EventHandler(this.ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem_Click);
+            // 
+            // bilgiButonuToolStripMenuItem
+            // 
+            this.bilgiButonuToolStripMenuItem.Name = "bilgiButonuToolStripMenuItem";
+            this.bilgiButonuToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.bilgiButonuToolStripMenuItem.Text = "Bilgi Butonu";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Location = new System.Drawing.Point(1151, 42);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(300, 600);
+            this.panel2.TabIndex = 11;
             // 
             // turkiye
             // 

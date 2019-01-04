@@ -283,5 +283,10 @@ namespace CBS_Teror_Olayları
         {
 
         }
+
+        private void bobalıSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
