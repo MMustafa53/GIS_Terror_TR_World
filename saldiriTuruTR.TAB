@@ -1,0 +1,19 @@
+!table
+!version 300
+!charset WindowsTurkish
+
+Definition Table
+  Type NATIVE Charset "WindowsTurkish"
+  Fields 7
+    provstate Char (30) Index 1 ;
+    bombaliOlu Integer ;
+    bombaliYarali Integer ;
+    kundaklamaOlu Integer ;
+    kundaklamaYarali Integer ;
+    atesliSilahOlu Integer ;
+    atesliSilahYarali Integer ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "da6a3722-8f03-44be-8aee-ecb2e23dbf51"
+end_metadata
