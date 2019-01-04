@@ -4,6 +4,9 @@
 Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\terror" As terror Interactive
 Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\Iller" As Iller Interactive
 Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\trOluYarali" As trOluYarali Interactive
+Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\atesliSilah" As atesliSilah Interactive
+Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\kundak" As kundak Interactive
+Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\saldiriTuruTR" As saldiriTuruTR Interactive
 Add Column "Iller" (_COL2) Values
  73,59,0,226,1,383,23,10,6,8,
  0,174,112,0,1,13,0,4,2,5,
@@ -24,6 +27,12 @@ Add Column "Iller" (_COL3) Values
  43,89,564,2,2,26,0,0,106,4
 Add Column "Iller" (oluSayisi Integer) From trOluYarali Set To oluSayisi Where COL1 = COL1  Dynamic
 Add Column "Iller" (yaraliSayisi Integer) From trOluYarali Set To yaraliSayisi Where COL1 = COL1  Dynamic
+Add Column "Iller" (bombaliOlu Integer) From saldiriTuruTR Set To bombaliOlu Where COL1 = COL1  Dynamic
+Add Column "Iller" (bombaliYarali Integer) From saldiriTuruTR Set To bombaliYarali Where COL1 = COL1  Dynamic
+Add Column "Iller" (kundaklamaOlu Integer) From kundak Set To kundaklamaOlu Where COL1 = COL1  Dynamic
+Add Column "Iller" (kundaklamaYarali Integer) From kundak Set To kundaklamaYarali Where COL1 = COL1  Dynamic
+Add Column "Iller" (atesliSilahOlu Integer) From atesliSilah Set To atesliSilahOlu Where COL1 = COL1  Dynamic
+Add Column "Iller" (atesliSilahYarali Integer) From atesliSilah Set To atesliSilahYarali Where COL1 = COL1  Dynamic
 Map From Iller 
   Position (0.0520833,0.0520833) Units "in"
   Width 7.32292 Units "in" Height 3.83333 Units "in" 
