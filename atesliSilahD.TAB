@@ -1,0 +1,16 @@
+!table
+!version 300
+!charset WindowsTurkish
+
+Definition Table
+  Type NATIVE Charset "WindowsTurkish"
+  Fields 4
+    country_txt Char (30) Index 1 ;
+    atesliSilahSaldiri Integer ;
+    atesliSilahOlu Integer ;
+    atesliSilahYarali Integer ;
+begin_metadata
+"\IsReadOnly" = "FALSE"
+"\MapInfo" = ""
+"\MapInfo\TableID" = "83488af8-6fdc-42dc-be09-5bb991ea717a"
+end_metadata

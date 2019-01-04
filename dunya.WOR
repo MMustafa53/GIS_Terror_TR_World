@@ -1,21 +1,33 @@
 !Workspace
 !Version  950
 !Charset WindowsTurkish
-Open Table "4.SINIF GÜZ\BM463\terror" As terror Interactive
-Open Table "4.SINIF GÜZ\BM463\midata_32bit\MiData\Bolum_3\Dunya" As Dunya Interactive
-Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\saldiriSayisiD" As saldiriSayisiD Interactive
-Open Table "C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\dOlenYarali" As dOlenYarali Interactive
+Open Table "terror" As terror Interactive
+Open Table "Dunya" As Dunya Interactive
+Open Table "saldiriSayisiD" As saldiriSayisiD Interactive
+Open Table "dOlenYarali" As dOlenYarali Interactive
+Open Table "atesliSilahD" As atesliSilahD Interactive
+Open Table "kundakD" As kundakD Interactive
+Open Table "bombaliD" As bombaliD Interactive
 Add Column "Dunya" (saldiri Integer) From saldiriSayisiD Set To saldiri Where COL1 = COL1  Dynamic
 Add Column "Dunya" (olenSayisi Integer) From dOlenYarali Set To olenSayisi Where COL1 = COL1  Dynamic
 Add Column "Dunya" (yaraliSayisi Integer) From dOlenYarali Set To yaraliSayisi Where COL1 = COL1  Dynamic
+Add Column "Dunya" (atesliSilahSaldiri Integer) From atesliSilahD Set To atesliSilahSaldiri Where COL1 = COL1  Dynamic
+Add Column "Dunya" (atesliSilahOlu Integer) From atesliSilahD Set To atesliSilahOlu Where COL1 = COL1  Dynamic
+Add Column "Dunya" (atesliSilahYarali Integer) From atesliSilahD Set To atesliSilahYarali Where COL1 = COL1  Dynamic
+Add Column "Dunya" (kundaklamaSaldiri Integer) From kundakD Set To kundaklamaSaldiri Where COL1 = COL1  Dynamic
+Add Column "Dunya" (kundaklamaOlu Integer) From kundakD Set To kundaklamaOlu Where COL1 = COL1  Dynamic
+Add Column "Dunya" (kundaklamaYarali Integer) From kundakD Set To kundaklamaYarali Where COL1 = COL1  Dynamic
+Add Column "Dunya" (bobmaliSaldiri Integer) From bombaliD Set To bombaliSaldiri Where COL1 = COL1  Dynamic
+Add Column "Dunya" (bobmaliolu Integer) From bombaliD Set To bombaliOlu Where COL1 = COL1  Dynamic
+Add Column "Dunya" (bobmaliYarali Integer) From bombaliD Set To bombaliYarali Where COL1 = COL1  Dynamic
 Map From Dunya 
   Position (0.0520833,0.0520833) Units "in"
   Width 5.48958 Units "in" Height 3.73958 Units "in" 
 Set Window FrontWindow() ScrollBars Off Autoscroll On Enhanced On Smooth Text Antialias Image High
 Set Map
   CoordSys Earth Projection 1, 104
-  Center (-1.3966675,-3.1863215)
-  Zoom 45313.19435 Units "km"
+  Center (-4.591331296,0.006299392863)
+  Zoom 45383.35391 Units "km"
   Preserve Zoom Display Zoom
   Distance Units "km" Area Units "sq km" XY Units "degree"
 Set Map
@@ -23,8 +35,8 @@ Set Map
     Display Graphic
     Global Pen (1,2,0) Brush (2,16777215,16777215) Symbol (35,0,12) Line (1,2,0) Font ("Tahoma",0,9,0)
     Label Line None Position Center Font ("Tahoma",0,9,0) Pen (1,2,0) 
-      With Country
-      Parallel On Auto Off Overlap Off Duplicates On Offset 2
+      With Country+saldiri
+      Parallel On Auto On Overlap Off Duplicates On Offset 2
       Visibility On
 Set Window FrontWindow() Printer
  Name "MapInfo PDF Printer Version 11.5" Orientation Portrait Copies 1
