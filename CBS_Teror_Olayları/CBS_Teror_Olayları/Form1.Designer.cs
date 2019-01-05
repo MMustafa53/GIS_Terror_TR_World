@@ -288,6 +288,7 @@
             this.bilgiButonuToolStripMenuItem.Name = "bilgiButonuToolStripMenuItem";
             this.bilgiButonuToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.bilgiButonuToolStripMenuItem.Text = "Bilgi Butonu";
+            this.bilgiButonuToolStripMenuItem.Click += new System.EventHandler(this.bilgiButonuToolStripMenuItem_Click);
             // 
             // panel2
             // 
