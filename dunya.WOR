@@ -17,9 +17,9 @@ Add Column "Dunya" (atesliSilahYarali Integer) From atesliSilahD Set To atesliSi
 Add Column "Dunya" (kundaklamaSaldiri Integer) From kundakD Set To kundaklamaSaldiri Where COL1 = COL1  Dynamic
 Add Column "Dunya" (kundaklamaOlu Integer) From kundakD Set To kundaklamaOlu Where COL1 = COL1  Dynamic
 Add Column "Dunya" (kundaklamaYarali Integer) From kundakD Set To kundaklamaYarali Where COL1 = COL1  Dynamic
-Add Column "Dunya" (bobmaliSaldiri Integer) From bombaliD Set To bombaliSaldiri Where COL1 = COL1  Dynamic
-Add Column "Dunya" (bobmaliolu Integer) From bombaliD Set To bombaliOlu Where COL1 = COL1  Dynamic
-Add Column "Dunya" (bobmaliYarali Integer) From bombaliD Set To bombaliYarali Where COL1 = COL1  Dynamic
+Add Column "Dunya" (bombaliSaldiri Integer) From bombaliD Set To bombaliSaldiri Where COL1 = COL1  Dynamic
+Add Column "Dunya" (bombaliolu Integer) From bombaliD Set To bombaliOlu Where COL1 = COL1  Dynamic
+Add Column "Dunya" (bombaliYarali Integer) From bombaliD Set To bombaliYarali Where COL1 = COL1  Dynamic
 Map From Dunya 
   Position (0.0520833,0.0520833) Units "in"
   Width 5.48958 Units "in" Height 3.73958 Units "in" 
