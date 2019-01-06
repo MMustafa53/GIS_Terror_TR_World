@@ -29,7 +29,7 @@ namespace CBS_Teror_Olayları
             int p = panel1.Handle.ToInt32();
             mi.Do("set next document parent " + p.ToString() + "style 1");
             mi.Do("set application window " + p.ToString());
-            mi.Do("run application \"" + "C:/Users/Husrevoglu/Desktop/turkiye.wor" + "\"");
+            mi.Do("run application \"" + "C:/Users/mmhus/Desktop/turkiye.wor" + "\"");
             win_id = mi.Eval("frontwindow()");
         }
 
@@ -50,60 +50,50 @@ namespace CBS_Teror_Olayları
         }
 
         //  ############################### -- GRAFIKLER -- ############################### //
-        private void yıllaraGöreSaldırıSaysıToolStripMenuItem_Click(object sender, EventArgs e)
+        public void grafikCizTR(string kontrol)
         {
             grafikler grafik = new grafikler();
-            grafik.kontrol = "yilSaldiri";
+            grafik.kontrol = kontrol;
             grafik.ShowDialog();
+        }
+        private void yıllaraGöreSaldırıSaysıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grafikCizTR("yilSaldiri");
         }
 
         private void yıllaraGöreÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "yilOlen";
-            grafik.ShowDialog();
+            grafikCizTR("yilOlen");
         }
 
         private void yıllaraGöreYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "yilYarali";
-            grafik.ShowDialog();
+            grafikCizTR("yilYarali");
         }
 
         private void bölgelereGöreSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "bolgeSaldiri";
-            grafik.ShowDialog();
+            grafikCizTR("bolgeSaldiri");
         }
 
         private void saldırıTürleriToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "saldiriTuru";
-            grafik.ShowDialog();
+            grafikCizTR("saldiriTuru");
         }
 
         private void saldırılanHedeflerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "saldiriHedef";
-            grafik.ShowDialog();
+            grafikCizTR("saldiriHedef");
         }
 
         private void saldırılırdaKullanılanSilahlarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "saldiriSilahTuru";
-            grafik.ShowDialog();
+            grafikCizTR("saldiriSilahTuru");
         }
 
         private void saldırıyeGerçekleştirenÖrgütlerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            grafikler grafik = new grafikler();
-            grafik.kontrol = "terorOrgut";
-            grafik.ShowDialog();
+            grafikCizTR("terorOrgut");
         }
 
         //  ############################### -- TEMATIKLER -- ############################### //
@@ -120,16 +110,15 @@ namespace CBS_Teror_Olayları
             }
         }
 
-
-        private void illereGöreÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        public void tematikOlustur(string baslik, string sutun)
         {
             removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + oluSayisi");
+            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + " + sutun);
             int n = 5;
             string p = panel1.Handle.ToString();
             string thematic_column = string.Empty;
-            mi.Do("select oluSayisi from iller order by oluSayisi into sel noselect");
-            thematic_column = "oluSayisi";
+            mi.Do("select "+ sutun + " from iller order by " + sutun + " into sel noselect");
+            thematic_column = sutun;
             int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
             int c_range = Convert.ToInt16(255 / n);
             //----------part 2 -----
@@ -152,417 +141,77 @@ namespace CBS_Teror_Olayları
             // ----------part 3 -----
             mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
             mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Ölen İnsan Sayısı\"");
+            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title "+ baslik);
             int p1 = panel2.Handle.ToInt32();
             mi.Do("Set Next Document Parent " + p1 + "Style 1");
             mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+        }
+
+        private void illereGöreÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tematikOlustur("\"İllere Göre Ölen İnsan Sayısı\"", "oluSayisi");
         }
 
         private void illereGöreYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " +win_id+  " Layer 1 Label With IL_ADI + yaraliSayisi");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select yaraliSayisi from iller order by yaraliSayisi into sel noselect");
-            thematic_column = "yaraliSayisi";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Yaralı İnsan Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlustur("\"İllere Göre Yaralı İnsan Sayısı\"", "yaraliSayisi");
         }
 
         private void illereGöreSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + saldiri");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select saldiri from iller order by saldiri into sel noselect");
-            thematic_column = "saldiri";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Saldırı Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlustur("\"İllere Göre Saldırı Sayısı\"", "saldiri");
         }
 
         private void bombalıSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + bombaliSaldiri");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select bombaliSaldiri from iller order by bombaliSaldiri into sel noselect");
-            thematic_column = "bombaliSaldiri";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Bombalı Saldırı Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlustur("\"İllere Göre Bombalı Saldırı Sayısı\"", "bombaliSaldiri");
         }
 
         private void kundaklamaSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + kundaklama");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select kundaklama from iller order by kundaklama into sel noselect");
-            thematic_column = "kundaklama";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Kundaklama Saldırı Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlustur("\"İllere Göre Kundaklama Saldırı Sayısı\"", "kundaklama");
         }
 
         private void ateşliSilahSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + atesliSilah");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select atesliSilah from iller order by atesliSilah into sel noselect");
-            thematic_column = "atesliSilah";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Ateşli Silah Saldırı Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlustur("\"İllere Göre Ateşli Silah Saldırı Sayısı\"", "atesliSilah");
         }
 
         private void bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + bombaliOlu");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select bombaliOlu from iller order by bombaliOlu into sel noselect");
-            thematic_column = "bombaliOlu";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Bombalı Saldırılarda Ölen İnsan Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlustur("\"İllere Göre Bombalı Saldırılarda Ölen İnsan Sayısı\"", "bombaliOlu");
         }
 
         private void kundaklamaSaldırılarındaÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + kundaklamaOlu");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select kundaklamaOlu from iller order by kundaklamaOlu into sel noselect");
-            thematic_column = "kundaklamaOlu";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Kundaklamalarda Ölen İnsan Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlustur("\"İllere Göre Kundaklamalarda Ölen İnsan Sayısı\"", "kundaklamaOlu");
         }
 
         private void ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + atesliSilahOlu");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select atesliSilahOlu from iller order by atesliSilahOlu into sel noselect");
-            thematic_column = "atesliSilahOlu";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Ateşli Silah Saldırılarında Ölen İnsan Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlustur("\"İllere Göre Ateşli Silah Saldırılarında Ölen İnsan Sayısı\"", "atesliSilahOlu");
         }
 
         private void bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + bombaliYarali");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select bombaliYarali from iller order by bombaliYarali into sel noselect");
-            thematic_column = "bombaliYarali";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Bombalı Saldırılarda Ölen İnsan Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlustur("\"İllere Göre Bombalı Saldırılarda Ölen İnsan Sayısı\"", "bombaliYarali");
         }
 
         private void kundaklamalardaYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + kundaklamaYarali");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select kundaklamaYarali from iller order by kundaklamaYarali into sel noselect");
-            thematic_column = "kundaklamaYarali";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Kundaklamalarda Yaralanan İnsan Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlustur("\"İllere Göre Kundaklamalarda Yaralanan İnsan Sayısı\"", "kundaklamaYarali");
         }
 
         private void ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With IL_ADI + atesliSilahYarali");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select atesliSilahYarali from iller order by atesliSilahYarali into sel noselect");
-            thematic_column = "atesliSilahYarali";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
+            tematikOlustur("\"İllere Göre Ateşli Silah Saldırılarında Yaralanan İnsan Sayısı\"", "atesliSilahYarali");
+        }
 
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"İllere Göre Ateşli Silah Saldırılarında Yaralanan İnsan Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+        //  ############################### -- INFO BUTONU -- ############################### //
+
+        private void bilgiButonuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
