@@ -134,7 +134,7 @@ namespace CBS_Teror_Olayları
             // ----------part 3 -----
             mi.Do("shade window " + win_id + " dunya with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
             mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title " + baslik);
+            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title " + baslik + " Font (\"Arial\",0,9,0) subtitle auto Font (\"Arial\",0,8,0) ascending off style size large ranges Font (\"Arial\",0,8,0) auto display off ,auto display on ");
             int p1 = panel2.Handle.ToInt32();
             mi.Do("Set Next Document Parent " + p1 + "Style 1");
             mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
