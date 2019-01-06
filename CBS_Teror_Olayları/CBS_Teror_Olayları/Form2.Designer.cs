@@ -194,19 +194,21 @@
             this.bobalıSaldırıSayısıToolStripMenuItem.Name = "bobalıSaldırıSayısıToolStripMenuItem";
             this.bobalıSaldırıSayısıToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.bobalıSaldırıSayısıToolStripMenuItem.Text = "Bombalı Saldırı Sayısı";
-            this.bobalıSaldırıSayısıToolStripMenuItem.Click += new System.EventHandler(this.bobalıSaldırıSayısıToolStripMenuItem_Click);
+            this.bobalıSaldırıSayısıToolStripMenuItem.Click += new System.EventHandler(this.bombalıSaldırıSayısıToolStripMenuItem_Click);
             // 
             // kundaklamaSaldırıSayısıToolStripMenuItem
             // 
             this.kundaklamaSaldırıSayısıToolStripMenuItem.Name = "kundaklamaSaldırıSayısıToolStripMenuItem";
             this.kundaklamaSaldırıSayısıToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.kundaklamaSaldırıSayısıToolStripMenuItem.Text = "Kundaklama Saldırı Sayısı";
+            this.kundaklamaSaldırıSayısıToolStripMenuItem.Click += new System.EventHandler(this.kundaklamaSaldırıSayısıToolStripMenuItem_Click);
             // 
             // ateşliSilahlıSaldırıSayısıToolStripMenuItem
             // 
             this.ateşliSilahlıSaldırıSayısıToolStripMenuItem.Name = "ateşliSilahlıSaldırıSayısıToolStripMenuItem";
             this.ateşliSilahlıSaldırıSayısıToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.ateşliSilahlıSaldırıSayısıToolStripMenuItem.Text = "Ateşli Silah Saldırı Sayısı";
+            this.ateşliSilahlıSaldırıSayısıToolStripMenuItem.Click += new System.EventHandler(this.ateşliSilahlıSaldırıSayısıToolStripMenuItem_Click);
             // 
             // ülkelereGöreÖlenİnsanSayısıToolStripMenuItem
             // 
@@ -224,7 +226,7 @@
             this.bombalıSaldırıToolStripMenuItem.Name = "bombalıSaldırıToolStripMenuItem";
             this.bombalıSaldırıToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
             this.bombalıSaldırıToolStripMenuItem.Text = "Bombalı Saldırılarda Ölen İnsan Sayısı";
-            this.bombalıSaldırıToolStripMenuItem.Click += new System.EventHandler(this.bombalıSaldırıToolStripMenuItem_Click);
+            this.bombalıSaldırıToolStripMenuItem.Click += new System.EventHandler(this.bombalıSaldırıÖlenİnsaSayısıToolStripMenuItem_Click);
             // 
             // kundaklamalardaÖlenİnsanSayısıToolStripMenuItem
             // 
