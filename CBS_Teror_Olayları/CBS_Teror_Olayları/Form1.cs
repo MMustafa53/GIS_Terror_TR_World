@@ -29,7 +29,7 @@ namespace CBS_Teror_Olayları
             int p = panel1.Handle.ToInt32();
             mi.Do("set next document parent " + p.ToString() + "style 1");
             mi.Do("set application window " + p.ToString());
-            mi.Do("run application \"" + "C:/Users/mmhus/Desktop/turkiye.wor" + "\"");
+            mi.Do("run application \"" + "C:/Users/Husrevoglu/Desktop/turkiye.wor" + "\"");
             win_id = mi.Eval("frontwindow()");
         }
 
@@ -141,21 +141,13 @@ namespace CBS_Teror_Olayları
             // ----------part 3 -----
             mi.Do("shade window " + win_id + " iller with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
             mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title "+ baslik);
+            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title "+ baslik + " Font (\"Arial\",0,9,0) subtitle auto Font (\"Arial\",0,8,0) ascending off style size large ranges Font (\"Arial\",0,8,0) auto display off ,auto display on ");
             int p1 = panel2.Handle.ToInt32();
             mi.Do("Set Next Document Parent " + p1 + "Style 1");
             mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
         }
 
-        private void illereGöreÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tematikOlustur("\"İllere Göre Ölen İnsan Sayısı\"", "oluSayisi");
-        }
-
-        private void illereGöreYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tematikOlustur("\"İllere Göre Yaralı İnsan Sayısı\"", "yaraliSayisi");
-        }
+        //  ############################### -- SALDIRI SAYISI -- ############################### //
 
         private void illereGöreSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -177,6 +169,13 @@ namespace CBS_Teror_Olayları
             tematikOlustur("\"İllere Göre Ateşli Silah Saldırı Sayısı\"", "atesliSilah");
         }
 
+        //  ############################### -- ÖLEN İNSAN SAYISI -- ############################### //
+
+        private void illereGöreÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tematikOlustur("\"İllere Göre Ölen İnsan Sayısı\"", "oluSayisi");
+        }
+
         private void bombalıSaldırılardaÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tematikOlustur("\"İllere Göre Bombalı Saldırılarda Ölen İnsan Sayısı\"", "bombaliOlu");
@@ -192,9 +191,16 @@ namespace CBS_Teror_Olayları
             tematikOlustur("\"İllere Göre Ateşli Silah Saldırılarında Ölen İnsan Sayısı\"", "atesliSilahOlu");
         }
 
+        //  ############################### -- YARALI İNSAN SAYISI -- ############################### //
+
+        private void illereGöreYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tematikOlustur("\"İllere Göre Yaralı İnsan Sayısı\"", "yaraliSayisi");
+        }
+
         private void bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tematikOlustur("\"İllere Göre Bombalı Saldırılarda Ölen İnsan Sayısı\"", "bombaliYarali");
+            tematikOlustur("\"İllere Göre Bombalı Saldırılarda Yaralanan İnsan Sayısı\"", "bombaliYarali");
         }
 
         private void kundaklamalardaYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)

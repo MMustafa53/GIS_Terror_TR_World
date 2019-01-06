@@ -18,7 +18,7 @@ Add Column "Dunya" (kundaklamaSaldiri Integer) From kundakD Set To kundaklamaSal
 Add Column "Dunya" (kundaklamaOlu Integer) From kundakD Set To kundaklamaOlu Where COL1 = COL1  Dynamic
 Add Column "Dunya" (kundaklamaYarali Integer) From kundakD Set To kundaklamaYarali Where COL1 = COL1  Dynamic
 Add Column "Dunya" (bombaliSaldiri Integer) From bombaliD Set To bombaliSaldiri Where COL1 = COL1  Dynamic
-Add Column "Dunya" (bombaliolu Integer) From bombaliD Set To bombaliOlu Where COL1 = COL1  Dynamic
+Add Column "Dunya" (bombaliOlu Integer) From bombaliD Set To bombaliOlu Where COL1 = COL1  Dynamic
 Add Column "Dunya" (bombaliYarali Integer) From bombaliD Set To bombaliYarali Where COL1 = COL1  Dynamic
 Map From Dunya 
   Position (0.0520833,0.0520833) Units "in"
@@ -35,7 +35,7 @@ Set Map
     Display Graphic
     Global Pen (1,2,0) Brush (2,16777215,16777215) Symbol (35,0,12) Line (1,2,0) Font ("Tahoma",0,9,0)
     Label Line None Position Center Font ("Tahoma",0,9,0) Pen (1,2,0) 
-      With Country+saldiri
+      With Country
       Parallel On Auto On Overlap Off Duplicates On Offset 2
       Visibility On
 Set Window FrontWindow() Printer

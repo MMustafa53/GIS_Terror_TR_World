@@ -28,7 +28,7 @@ namespace CBS_Teror_Olayları
             int p = panel1.Handle.ToInt32();
             mi.Do("set next document parent " + p.ToString() + "style 1");
             mi.Do("set application window " + p.ToString());
-            mi.Do("run application \"" + "C:/Users/mmhus/Desktop/dunya.wor" + "\"");
+            mi.Do("run application \"" + "C:/Users/Husrevoglu/Desktop/dunya.wor" + "\"");
             win_id = mi.Eval("frontwindow()");
         }
 
@@ -93,6 +93,7 @@ namespace CBS_Teror_Olayları
         //  ############################### -- TEMATIKLER -- ############################### //
         public void removetematik()
         {
+            panel1.Focus();
             for (int k = Convert.ToInt16(mi.Eval("mapperinfo(" + win_id + ",9)")); k > 0; k = k - 1)
             {
                 if (Convert.ToInt16(mi.Eval("layerinfo(" + win_id + "," + Convert.ToString(k) + ",24)")) == 3)
@@ -102,15 +103,15 @@ namespace CBS_Teror_Olayları
             }
         }
 
-        private void ülkelereGöreSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        public void tematikOlusturD(string baslik, string sutun)
         {
             removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With Country + saldiri");
+            mi.Do("Set Map Window " + win_id + " Layer 1 Label With Country + "+ sutun);
             int n = 5;
             string p = panel1.Handle.ToString();
             string thematic_column = string.Empty;
-            mi.Do("select saldiri from dunya order by saldiri into sel noselect");
-            thematic_column = "saldiri";
+            mi.Do("select "+ sutun + " from dunya order by " + sutun + " into sel noselect");
+            thematic_column = sutun;
             int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
             int c_range = Convert.ToInt16(255 / n);
             //----------part 2 -----
@@ -133,151 +134,76 @@ namespace CBS_Teror_Olayları
             // ----------part 3 -----
             mi.Do("shade window " + win_id + " dunya with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
             mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"Ülkelere Göre Saldırı Sayısı\"");
+            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title " + baslik + " Font (\"Arial\",0,9,0) subtitle auto Font (\"Arial\",0,8,0) ascending off style size large ranges Font (\"Arial\",0,8,0) auto display off ,auto display on ");
             int p1 = panel2.Handle.ToInt32();
             mi.Do("Set Next Document Parent " + p1 + "Style 1");
             mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
         }
+
+        //  ############################### -- SALDIRI SAYISI -- ############################### //
+
+        private void ülkelereGöreSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tematikOlusturD("\"Ülkelere Göre Saldırı Sayısı\"", "saldiri");
+        }
+
+        private void bombalıSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tematikOlusturD("\"Ülkelere Göre Bombalı Saldırı Sayısı\"", "bombaliSaldiri");
+        }
+
+        private void kundaklamaSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tematikOlusturD("\"Ülkelere Göre Kundaklama Saldırı Sayısı\"", "kundaklamaSaldiri");
+        }
+
+        private void ateşliSilahlıSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tematikOlusturD("\"Ülkelere Göre Ateşli Silah Saldırı Sayısı\"", "atesliSilahSaldiri");
+        }
+
+        //  ############################### -- OLEN İNSAN SAYISI -- ############################### //
 
         private void ülkelereGöreÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With Country + olenSayisi");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select olenSayisi from dunya order by olenSayisi into sel noselect");
-            thematic_column = "olenSayisi";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " dunya with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"Ülkelere Göre Ölen İnsan Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlusturD("\"Ülkelere Göre Ölen İnsan Sayısı\"", "olenSayisi");
         }
 
-        private void ülkelereGöreYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        private void bombalıSaldırıÖlenİnsaSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With Country + yaraliSayisi");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select yaraliSayisi from dunya order by yaraliSayisi into sel noselect");
-            thematic_column = "yaraliSayisi";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " dunya with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"Ülkelere Göre Ölen İnsan Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
-        }
-
-        private void bombalıSaldırıToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            removetematik();
-            mi.Do("Set Map Window " + win_id + " Layer 1 Label With Country + olenSayisi");
-            int n = 5;
-            string p = panel1.Handle.ToString();
-            string thematic_column = string.Empty;
-            mi.Do("select olenSayisi from dunya order by olenSayisi into sel noselect");
-            thematic_column = "olenSayisi";
-            int range = Convert.ToInt16(mi.Eval("int(tableinfo(sel,8)/" + Convert.ToString(n) + ")"));
-            int c_range = Convert.ToInt16(255 / n);
-            //----------part 2 -----
-            mi.Do("fetch first from sel");
-            string r1 = Convert.ToString(mi.Eval("sel.col1"));
-            string r2 = string.Empty;
-            string cmstr = string.Empty;
-
-            for (int i = 1; i < n; i++)
-            {
-                mi.Do("fetch rec " + Convert.ToString(i * range) + " from sel");
-                r2 = Convert.ToString(mi.Eval("sel.col1"));
-                string rgb = Convert.ToString(mi.Eval("RGB(255," + Convert.ToString((n - i) * c_range) + "," + Convert.ToString((n - i) * c_range) + ")"));
-                cmstr = cmstr + r1 + ":" + r2 + " brush(2," + rgb + ",16777215), ";
-                r1 = r2;
-            }
-            mi.Do("fetch last from sel");
-            r2 = Convert.ToString(mi.Eval("sel.col1"));
-            cmstr = cmstr + r1 + ":" + r2 + " brush(2,16711680,16777215)";
-            // ----------part 3 -----
-            mi.Do("shade window " + win_id + " dunya with " + thematic_column + " ranges apply all use color Brush (2,16711680,16777215) " + cmstr);
-            mi.Do("Set Next Document Parent " + p + " Style 1");
-            mi.Do("set legend window " + win_id + " layer prev display  on shades on symbols off lines off count on title \"Ülkelere Göre Ölen İnsan Sayısı\"");
-            int p1 = panel2.Handle.ToInt32();
-            mi.Do("Set Next Document Parent " + p1 + "Style 1");
-            mi.Do("Create Cartographic Legend From Window " + win_id + " Behind Frame From Layer 1");
+            tematikOlusturD("\"Ülkelere Göre Bombalı Saldırılarda Ölen İnsan Sayısı\"", "bombaliOlu");
         }
 
         private void kundaklamalardaÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            tematikOlusturD("\"Ülkelere Göre Kundaklamalarda Ölen İnsan Sayısı\"", "kundaklamaOlu");
         }
 
         private void ateşliSilahlıSaldırılardaÖlenİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            tematikOlusturD("\"Ülkelere Göre Ateşli Silah Saldırılarında Ölen Sayısı\"", "atesliSilahOlu");
+        }
 
+        //  ############################### -- YARALI INSAN SAYISI -- ############################### //
+
+        private void ülkelereGöreYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tematikOlusturD("\"Ülkelere Göre Yaralanan İnsan Sayısı\"", "yaraliSayisi");
         }
 
         private void bombalıSaldırılardaYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            tematikOlusturD("\"Ülkelere Göre Bombalı Saldırılarda Yaralanan İnsan Sayısı\"", "bombaliYarali");
         }
 
         private void kundaklamalardaYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            tematikOlusturD("\"Ülkelere Göre Kundaklamalarda Yaralanan İnsan Sayısı\"", "kundaklamaYarali");
         }
 
         private void ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void bobalıSaldırıSayısıToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            tematikOlusturD("\"Ülkelere Göre Ateşli Silah Saldırılarında Yaralanan İnsan Sayısı\"", "atesliSilahYarali");
         }
     }
 }
