@@ -28,7 +28,7 @@ namespace CBS_Teror_Olayları
             int p = panel1.Handle.ToInt32();
             mi.Do("set next document parent " + p.ToString() + "style 1");
             mi.Do("set application window " + p.ToString());
-            mi.Do("run application \"" + "C:/Users/Husrevoglu/Desktop/dunya.wor" + "\"");
+            mi.Do("run application \"" + "C:/Users/mmhus/Desktop/dunya.wor" + "\"");
             win_id = mi.Eval("frontwindow()");
         }
 

@@ -28,5 +28,10 @@ namespace CBS_Teror_Olayları
             Form2 dunya = new Form2();
             dunya.ShowDialog();
         }
+
+        private void girisEkrani_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

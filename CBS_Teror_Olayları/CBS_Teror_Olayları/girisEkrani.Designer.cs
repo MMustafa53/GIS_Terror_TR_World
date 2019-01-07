@@ -39,7 +39,7 @@
             this.dunyaBtn.Name = "dunyaBtn";
             this.dunyaBtn.Size = new System.Drawing.Size(162, 34);
             this.dunyaBtn.TabIndex = 2;
-            this.dunyaBtn.Text = "Dunya\'da Terör";
+            this.dunyaBtn.Text = "Dünya\'da Terör";
             this.dunyaBtn.UseVisualStyleBackColor = true;
             this.dunyaBtn.Click += new System.EventHandler(this.dunyaBtn_Click);
             // 
@@ -63,6 +63,7 @@
             this.Controls.Add(this.dunyaBtn);
             this.Name = "girisEkrani";
             this.Text = "Türkiye\'de ve Dünya\'da Terör Olayları";
+            this.Load += new System.EventHandler(this.girisEkrani_Load);
             this.ResumeLayout(false);
 
         }
