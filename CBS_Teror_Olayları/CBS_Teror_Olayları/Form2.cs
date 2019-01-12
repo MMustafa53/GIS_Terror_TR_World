@@ -13,22 +13,31 @@ namespace CBS_Teror_Olayları
 {
     public partial class Form2 : Form
     {
-        public Form2()
-        {
-            InitializeComponent();
-        }
         public static MapInfo.MapInfoApplication mi;
         public static bool ucd = false;
+        public bilgiD _bilgiD = new bilgiD();
+        BilgiButonuClassD bilgiButonuD;
         [DllImport("user32.dll")]
         static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
         public static string win_id;
+
+        public Form2()
+        {
+            InitializeComponent();
+            bilgiButonuD = new BilgiButonuClassD(this);
+        }
+        
         private void Form2_Load(object sender, EventArgs e)
         {
             mi = new MapInfo.MapInfoApplication();
             int p = panel1.Handle.ToInt32();
             mi.Do("set next document parent " + p.ToString() + "style 1");
             mi.Do("set application window " + p.ToString());
-            mi.Do("run application \"" + "C:/Users/mmhus/Desktop/dunya.wor" + "\"");
+            mi.Do("run application \"" + "C:/Users/Husrevoglu/Desktop/dunya.wor" + "\"");
+
+            mi.SetCallback(bilgiButonuD);
+            mi.Do("create buttonpad \"a\" as toolbutton calling OLE \"bilgiSaglayaci\" id 2001");
+
             win_id = mi.Eval("frontwindow()");
         }
 
@@ -204,6 +213,13 @@ namespace CBS_Teror_Olayları
         private void ateşliSilahlıSaldırılardaYaralıİnsanSayısıToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tematikOlusturD("\"Ülkelere Göre Ateşli Silah Saldırılarında Yaralanan İnsan Sayısı\"", "atesliSilahYarali");
+        }
+
+        //  ############################### -- INFO BUTONU -- ############################### //
+
+        private void bilgiButonuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mi.Do("run menu command id 2001");
         }
     }
 }

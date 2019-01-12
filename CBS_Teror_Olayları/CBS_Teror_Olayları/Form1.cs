@@ -13,23 +13,33 @@ namespace CBS_Teror_Olayları
 {
     public partial class turkiye : Form
     {
-        public turkiye()
-        {
-            InitializeComponent();
-            this.StartPosition = 0;
-        }
+        
         public static MapInfo.MapInfoApplication mi;
+        public bilgiTR _bilgiTR = new bilgiTR();
+        BilgiButonuClass bilgiButonu;
         public static bool ucd = false;
         [DllImport("user32.dll")]
         static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
         public static string win_id;
+
+        public turkiye()
+        {
+            InitializeComponent();
+            bilgiButonu = new BilgiButonuClass(this);
+            this.StartPosition = 0;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             mi = new MapInfo.MapInfoApplication();
             int p = panel1.Handle.ToInt32();
             mi.Do("set next document parent " + p.ToString() + "style 1");
             mi.Do("set application window " + p.ToString());
-            mi.Do("run application \"" + "C:/Users/mmhus/Desktop/turkiye.wor" + "\"");
+            mi.Do("run application \"" + "C:/Users/Husrevoglu/Desktop/turkiye.wor" + "\"");
+          
+            mi.SetCallback(bilgiButonu);
+            mi.Do("create buttonpad \"a\" as toolbutton calling OLE \"bilgiSaglayaci\" id 2001");
+
             win_id = mi.Eval("frontwindow()");
         }
 
@@ -100,7 +110,6 @@ namespace CBS_Teror_Olayları
 
         public void removetematik()
         {
-            panel1.Focus();
             for (int k = Convert.ToInt16(mi.Eval("mapperinfo(" + win_id + ",9)")); k > 0; k = k - 1)
             {
                 if (Convert.ToInt16(mi.Eval("layerinfo(" + win_id + "," + Convert.ToString(k) + ",24)")) == 3)
@@ -217,7 +226,7 @@ namespace CBS_Teror_Olayları
 
         private void bilgiButonuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            mi.Do("run menu command id 2001");
         }
     }
 }

@@ -47,6 +47,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BilgiButonuClass.cs" />
+    <Compile Include="BilgiButonuClassD.cs" />
+    <Compile Include="bilgiD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bilgiD.Designer.cs">
+      <DependentUpon>bilgiD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bilgiTR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bilgiTR.Designer.cs">
+      <DependentUpon>bilgiTR.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +93,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="bilgiD.resx">
+      <DependentUpon>bilgiD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bilgiTR.resx">
+      <DependentUpon>bilgiTR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
