@@ -1,13 +1,13 @@
 !Workspace
 !Version  950
 !Charset WindowsTurkish
-Open Table "terror" As terror Interactive
-Open Table "Iller" As Iller Interactive
-Open Table "trOluYarali" As trOluYarali Interactive
-Open Table "atesliSilah" As atesliSilah Interactive
-Open Table "kundak" As kundak Interactive
-Open Table "saldiriTuruTR" As saldiriTuruTR Interactive
-Open Table "trSaldiriTur" As trSaldiriTur Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\terror" As terror Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\Iller" As Iller Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\trOluYarali" As trOluYarali Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\atesliSilah" As atesliSilah Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\kundak" As kundak Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\saldiriTuruTR" As saldiriTuruTR Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\trSaldiriTur" As trSaldiriTur Interactive
 Add Column "Iller" (_COL2) Values
  73,59,0,226,1,383,23,10,6,8,
  0,174,112,0,1,13,0,4,2,5,
@@ -52,9 +52,9 @@ Set Map
   Layer 1
     Display Graphic
     Global Pen (1,2,0) Brush (2,16777215,16777215) Symbol (35,0,12) Line (1,2,0) Font ("Tahoma",0,9,0)
-    Label Line None Position Center Font ("Times New Roman",0,8,0) Pen (1,2,0) 
+    Label Line None Position Center Auto Retry On Font ("Times New Roman",0,8,0) Pen (1,2,0) 
       With IL_ADI
-      Parallel On Auto On Overlap On Duplicates On Offset 2
+      Parallel On Auto On Overlap Off Duplicates On Offset 2
       Visibility On
 Set Window FrontWindow() Printer
  Name "MapInfo PDF Printer Version 11.5" Orientation Portrait Copies 1

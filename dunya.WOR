@@ -1,13 +1,13 @@
 !Workspace
 !Version  950
 !Charset WindowsTurkish
-Open Table "terror" As terror Interactive
-Open Table "Dunya" As Dunya Interactive
-Open Table "saldiriSayisiD" As saldiriSayisiD Interactive
-Open Table "dOlenYarali" As dOlenYarali Interactive
-Open Table "atesliSilahD" As atesliSilahD Interactive
-Open Table "kundakD" As kundakD Interactive
-Open Table "bombaliD" As bombaliD Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\terror" As terror Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\Dunya" As Dunya Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\saldiriSayisiD" As saldiriSayisiD Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\dOlenYarali" As dOlenYarali Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\atesliSilahD" As atesliSilahD Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\kundakD" As kundakD Interactive
+Open Table "C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\bombaliD" As bombaliD Interactive
 Add Column "Dunya" (saldiri Integer) From saldiriSayisiD Set To saldiri Where COL1 = COL1  Dynamic
 Add Column "Dunya" (olenSayisi Integer) From dOlenYarali Set To olenSayisi Where COL1 = COL1  Dynamic
 Add Column "Dunya" (yaraliSayisi Integer) From dOlenYarali Set To yaraliSayisi Where COL1 = COL1  Dynamic
