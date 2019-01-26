@@ -35,7 +35,7 @@ namespace CBS_Teror_Olayları
             int p = panel1.Handle.ToInt32();
             mi.Do("set next document parent " + p.ToString() + "style 1");
             mi.Do("set application window " + p.ToString());
-            mi.Do("run application \"" + "C:/Users/Husrevoglu/Desktop/turkiye.wor" + "\"");
+            mi.Do("run application \"" + "C:/Users/mmhus/Desktop/turkiye.wor" + "\"");
           
             mi.SetCallback(bilgiButonu);
             mi.Do("create buttonpad \"a\" as toolbutton calling OLE \"bilgiSaglayaci\" id 2001");

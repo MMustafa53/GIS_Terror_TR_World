@@ -48,3 +48,5 @@ C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\CBS_Teror_Olayları\CBS
 C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\CBS_Teror_Olayları\CBS_Teror_Olayları\obj\Debug\CBS_Teror_Olayları.pdb
 C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\CBS_Teror_Olayları\CBS_Teror_Olayları\obj\Debug\CBS_Teror_Olayları.bilgiTR.resources
 C:\Users\Husrevoglu\Documents\GitHub\GIS_Terror_TR_World\CBS_Teror_Olayları\CBS_Teror_Olayları\obj\Debug\CBS_Teror_Olayları.bilgiD.resources
+C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\CBS_Teror_Olayları\CBS_Teror_Olayları\obj\Debug\CBS_Teror_Olayları.bilgiD.resources
+C:\Users\mmhus\Documents\GitHub\GIS_Terror_TR_World\CBS_Teror_Olayları\CBS_Teror_Olayları\obj\Debug\CBS_Teror_Olayları.bilgiTR.resources
