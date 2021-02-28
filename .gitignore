@@ -2,3 +2,4 @@
 **/*.sqlite
 **/CBS_Teror_Olaylar/.vs/*
 *.csv
+*.sqlite
